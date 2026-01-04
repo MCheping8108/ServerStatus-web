@@ -32,12 +32,7 @@ setInterval(() => {
   <div class="main-glass-container">
     <div class="container">
       <div class="progress-card">
-        <el-progress
-          type="dashboard"
-          :percentage="data?.cpuUsage * 100"
-          :stroke-width="18"
-          :width="200"
-        >
+        <el-progress type="dashboard" :percentage="(data as any)?.cpuUsage * 100" :stroke-width="18" :width="200">
           <template #default="{ percentage }">
             <span class="percentage-value">{{ percentage.toFixed(2) }}%</span>
             <span class="percentage-label">CPU</span>
@@ -46,12 +41,8 @@ setInterval(() => {
       </div>
 
       <div class="progress-card">
-        <el-progress
-          type="dashboard"
-          :percentage="(data?.memUsage / 1000000000 / 8) * 100"
-          :stroke-width="18"
-          :width="200"
-        >
+        <el-progress type="dashboard" :percentage="((data as any)?.memUsage / 1000000000 / 8) * 100" :stroke-width="18"
+          :width="200">
           <template #default="{ percentage }">
             <span class="percentage-value">{{ ((percentage / 100) * 8).toFixed(2) }}GB</span>
             <span class="percentage-label">Memory</span>
@@ -62,7 +53,7 @@ setInterval(() => {
       <div class="progress-card">
         <el-progress type="dashboard" :stroke-width="18" :width="200">
           <template #default="{ percentage }">
-            <span class="percentage-value">{{ data?.playerCount }} / {{ data?.playerMax }}</span>
+            <span class="percentage-value">{{ (data as any)?.playerCount }} / {{ (data as any)?.playerMax }}</span>
             <span class="percentage-label">Players</span>
           </template>
         </el-progress>
@@ -70,18 +61,13 @@ setInterval(() => {
     </div>
 
     <div class="info-container">
-      <el-result
-        :icon="data?.onlineMode ? 'success' : 'error'"
-        title="服务器正版验证状态"
-        :sub-title="data?.onlineMode ? '该服务器已启动正版验证' : '该服务器未启动正版验证'"
-      >
+      <el-result :icon="(data as any)?.onlineMode ? 'success' : 'error'" title="服务器正版验证状态"
+        :sub-title="(data as any)?.onlineMode ? '该服务器已启动正版验证' : '该服务器未启动正版验证'">
       </el-result>
-      <h1>服务器简介：{{ data?.motd }}</h1>
-      <h1>服务器版本：{{ data?.version }}</h1>
+      <h1>服务器简介：{{ (data as any)?.motd }}</h1>
+      <h1>服务器版本：{{ (data as any)?.version }}</h1>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
