@@ -66,6 +66,7 @@ setInterval(() => {
       </el-result>
       <h1>服务器简介：{{ (data as any)?.motd }}</h1>
       <h1>服务器版本：{{ (data as any)?.version }}</h1>
+      <h1>服务器名称：{{ (data as any)?.serverName }}</h1>
     </div>
   </div>
 </template>
